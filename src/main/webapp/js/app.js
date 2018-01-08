@@ -1,6 +1,6 @@
 angular.module('MonApp', [])
  
-.controller('Controleur1', function($scope,$http) {
+.controller('mainController', function($scope,$http) {
  
         function rafraichirLeTableau(){
             $http.get('rest/eleves/totalEleves').then(function(data){
