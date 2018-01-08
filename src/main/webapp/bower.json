@@ -1,0 +1,23 @@
+{
+  "name": "webapp",
+  "homepage": "https://github.com/mohamedgharbitun/ownproject",
+  "description": "",
+  "authors" : [
+  "Gharbi mohamed <gharbi.med85@gmail.com"
+  ],
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore" : [
+  "**.*",
+  "nodes_modules",
+  "bower_components",
+  "test",
+  "tests"
+  ],
+  "dependencies": {
+  "jquery" : "~2.1.4",
+  "angular":"1.6.8"
+  }
+  
+}
