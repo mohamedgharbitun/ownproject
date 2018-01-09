@@ -5,7 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
- 
+
 import crud.connexion.Connexion;
 import crud.modele.Eleve;
  
@@ -43,24 +43,26 @@ public class Dao {
         }
  
         public Eleve getEleveParId(int id) {
-            System.out.println(id);
+        	
+        	if( id == 0)
+        		return null;
  
             try {
-            Connection con = Connexion.getConnection();
-            PreparedStatement ps = con.prepareStatement("select * from eleves WHERE id = ?");
-            ps.setInt(1, id);
-            Eleve e = new Eleve();
-            ResultSet rs = ps.executeQuery();
- 
-            while (rs.next()) {
- 
-                e.setId(rs.getInt("id"));
-                e.setPrenom(rs.getString("prenom"));
-                e.setNom(rs.getString("nom"));
- 
-            }
-            rs.close();
-            return e;
+	            Connection con = Connexion.getConnection();
+	            PreparedStatement ps = con.prepareStatement("select * from eleves WHERE id = ?");
+	            ps.setInt(1, id);
+	            Eleve e = new Eleve();
+	            ResultSet rs = ps.executeQuery();
+	 
+	            while (rs.next()) {
+	 
+	                e.setId(rs.getInt("id"));
+	                e.setPrenom(rs.getString("prenom"));
+	                e.setNom(rs.getString("nom"));
+	 
+	            }
+	            rs.close();
+	            return e;
  
             }catch (Exception e) {
                 System.out.println("Erreur avec  getEleveParId() -->" + e.getMessage());
@@ -68,15 +70,18 @@ public class Dao {
             }
         }
  
-        public void validerEdition(Eleve eleve) {
+        public boolean validerEdition(Eleve eleve) {
  
             try {
-                System.out.println("Edition de l eleve avec le prenom: " + eleve.getPrenom());
                 Connection con = Connexion.getConnection();
+                
+                if(getEleveParId(eleve.getId()) == null)
+                {
+                	return false;
+                }
  
              // L'insert avec mysql
-                String query = " UPDATE eleves SET prenom = ?, nom = ? WHERE id = ?";
-                System.out.println(query);
+                String query = "UPDATE eleves SET prenom = ?, nom = ? WHERE id = ?";
                 PreparedStatement ps = con.prepareStatement(query);
                 ps.setString (1, eleve.getPrenom());
                 ps.setString (2, eleve.getNom());
@@ -86,8 +91,8 @@ public class Dao {
                 ps.close();
                 }catch (Exception e) {
                     System.out.println("Erreur avec validerEdition() -->" + e.getMessage());
- 
             }
+            return true;
         }
  
         public void ajouterEleve(Eleve eleve) {

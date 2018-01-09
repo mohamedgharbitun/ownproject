@@ -2,22 +2,24 @@
   "name": "webapp",
   "homepage": "https://github.com/mohamedgharbitun/ownproject",
   "description": "",
-  "authors" : [
-  "Gharbi mohamed <gharbi.med85@gmail.com"
+  "authors": [
+    "Gharbi mohamed <gharbi.med85@gmail.com"
   ],
   "main": "",
   "license": "MIT",
   "private": true,
-  "ignore" : [
-  "**.*",
-  "nodes_modules",
-  "bower_components",
-  "test",
-  "tests"
+  "ignore": [
+    "**.*",
+    "nodes_modules",
+    "bower_components",
+    "test",
+    "tests"
   ],
   "dependencies": {
-  "jquery" : "~2.1.4",
-  "angular":"1.6.8"
+    "jquery": "~2.1.4",
+    "angular": "1.6.8",
+    "AngularJS-Toaster": "angularjs-toaster#^2.2.0",
+    "bower": "*",
+    "angular-animate": "^1.6.8"
   }
-  
 }

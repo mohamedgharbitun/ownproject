@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<head>
-<title>Crud Java Jersey pour AngularJS</title>
-<link rel="stylesheet" type="text/css" href="css/eleve.css">
-</head>
-
-<body ng-app="MonApp" ng-controller="Controleur1">
+<link rel="stylesheet" type="text/css" href="css/crud.css">
+<link rel="stylesheet" type="text/css" href="bower_components/AngularJS-Toaster/toaster.min.css">
+<script src="bower_components/angular/angular.min.js"></script>
+<script src="bower_components/AngularJS-Toaster/toaster.min.js"></script>
+<script src="bower_components/angular-animate/angular-animate.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
+<body ng-app="MonApp" ng-controller="mainController">
 
 	<div class="datagrid">
 		<table>
@@ -86,10 +87,10 @@
 			</thead>
 			<tfoot>
 				<tr>
-					<td colspan="4"><div id="paging" style="text-align: right"
-							ng-click="ajouter()">
-							<button>Ajouter</button>
-						</div>
+					<td colspan="4">
+					<div id="paging" style="text-align: right"	ng-click="ajouter()">
+						<button>Ajouter</button>
+					</div>
 				</tr>
 			</tfoot>
 			<tbody>
@@ -101,10 +102,6 @@
 			</tbody>
 		</table>
 	</div>
-
+<toaster-container toaster-options="{'position-class': 'toast-top-center'}"></toaster-container>
 </body>
 </html>
-
-<script type="text/javascript"
-	src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
-<script type="text/javascript" src="js/app.js"></script>
