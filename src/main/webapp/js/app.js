@@ -1,5 +1,25 @@
-angular.module('MonApp', ['toaster','ngAnimate']) 
-.controller('mainController', function($scope,$http,toaster) {
+angular
+.module('MonApp', ['toaster','ngAnimate','ngRoute','ui.router'])
+.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
+	
+	$locationProvider.html5Mode(false);
+	//$urlRouterProvider.otherwise('');
+	$locationProvider.hashPrefix('');
+	
+    $stateProvider
+    .state('main', {
+        url: '/',
+        templateUrl: './index.html',
+        controller: 'mainController'
+    })
+    .state('test', {
+        url: '/test',
+        templateUrl: './views/test.html',
+        controller: 'testController'
+    })
+})
+.controller('mainController', function($scope,$http,toaster,$state,$location) {
+	console.log("passage par maincontroller");
  
         function rafraichirLeTableau(){
             $http.get('rest/eleves/totalEleves').then(function(data){
@@ -34,13 +54,17 @@ angular.module('MonApp', ['toaster','ngAnimate'])
                 rafraichirLeTableau();
             })
          };
- 
+         
          $scope.supprimer = function(eleve){
             $http.get('rest/eleves/supprimerEleveParId/'+ eleve.id).then(function(data){
             	toaster.pop('info', "Succès", "Suppression effectuée");
                 rafraichirLeTableau();
             })
          };
+         
+         $scope.redirectTest = function() {
+        	 $state.go('test');
+		};
  
          rafraichirLeTableau();
 /* FIN DU CONTROLEUR */

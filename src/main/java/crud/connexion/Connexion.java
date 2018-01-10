@@ -18,7 +18,6 @@ public class Connexion {
  
             Class.forName(DRIVER);
             dbConnection= DriverManager.getConnection(URL, USER, PASSWORD);
-            System.out.println("Connection completed.");
  
         } catch (SQLException e) { 
  
@@ -27,7 +26,6 @@ public class Connexion {
         }catch(ClassNotFoundException cnfe){
  
            cnfe.printStackTrace();
-           System.out.println(cnfe.getMessage());
            System.exit(-1);
  
        }
