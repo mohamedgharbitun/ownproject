@@ -22,9 +22,12 @@ angular
 	console.log("passage par maincontroller");
  
         function rafraichirLeTableau(){
-            $http.get('rest/eleves/totalEleves').then(function(data){
-                $scope.eleves = data.data;
-            })
+        	$http({
+                method : 'GET',
+                url : 'rest/eleves/totalEleves'
+              }).then(function(response) {
+                $scope.eleves = JSON.stringify(response.data);
+              });
         };
  
         $scope.editer = function(eleve){

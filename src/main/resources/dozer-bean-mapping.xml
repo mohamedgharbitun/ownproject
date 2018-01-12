@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappings xmlns="http://dozer.sourceforge.net"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://dozer.sourceforge.net
+          http://dozer.sourceforge.net/schema/beanmapping.xsd">
+          
+  <mapping> 
+    <class-a>crud.modele.EleveDTO</class-a>
+    <class-b>crud.dao.Eleve</class-b>   
+    <field>
+      <a>id</a>
+      <b>id</b>
+    </field>
+    <field>
+      <a>prenom</a>
+      <b>prenom</b>
+    </field>
+    <field>
+      <a>nom</a>
+      <b>nom</b>
+    </field>
+  </mapping>  
+
+</mappings> 

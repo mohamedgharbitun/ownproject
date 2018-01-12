@@ -1,0 +1,5 @@
+crud\config\root\RootContextConfig.class
+crud\config\servlet\WebMvcConfig.class
+crud\modele\EleveDTO.class
+crud\connexion\Connexion.class
+crud\dao\Eleve.class

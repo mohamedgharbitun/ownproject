@@ -1,129 +1,100 @@
 package crud.dao;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import crud.connexion.Connexion;
-import crud.modele.Eleve;
+import org.dozer.DozerBeanMapper;
+import org.dozer.Mapper;
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.cfg.Configuration;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Repository;
 
+import crud.modele.EleveDTO;
+
+@Repository
 public class Dao {
-
-	public List<Eleve> getTousEleves() {
-
-		try {
-			Connection con = Connexion.getConnection();
-			PreparedStatement ps = con.prepareStatement("select * from eleves");
-			List<Eleve> al = new ArrayList<Eleve>();
-			ResultSet rs = ps.executeQuery();
-			boolean found = false;
-
-			while (rs.next()) {
-				Eleve e = new Eleve();
-				e.setId(rs.getInt("id"));
-				e.setPrenom(rs.getString("prenom"));
-				e.setNom(rs.getString("nom"));
-				al.add(e);
-				found = true;
-			}
-			rs.close();
-			if (found) {
-				return al;
-			} else {
-				return null; // Pas de data trouvé
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-			return (null);
-		}
+	
+	
+	@Autowired
+	private Mapper dozerBeanMapper;
+	
+	public SessionFactory getSessionFactory() {
+		Configuration configuration = new Configuration().configure();
+		StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder()
+				.applySettings(configuration.getProperties());
+		SessionFactory sessionFactory = configuration
+				.buildSessionFactory(builder.build());
+		return sessionFactory;
 	}
 
-	public Eleve getEleveParId(int id) {
+	public List<EleveDTO> read() {
+		Session session = getSessionFactory().openSession();
 
-		if (id == 0)
-			return null;
+		List<Eleve> eleves = session.createQuery("FROM Eleve").list();
 
-		try {
-			Connection con = Connexion.getConnection();
-			PreparedStatement ps = con.prepareStatement("select * from eleves WHERE id = ?");
-			ps.setInt(1, id);
-			Eleve e = new Eleve();
-			ResultSet rs = ps.executeQuery();
-
-			while (rs.next()) {
-
-				e.setId(rs.getInt("id"));
-				e.setPrenom(rs.getString("prenom"));
-				e.setNom(rs.getString("nom"));
-
-			}
-			rs.close();
-			return e;
-
-		} catch (Exception e) {
-			System.out.println("Erreur avec  getEleveParId() -->" + e.getMessage());
-			return (null);
+		List<EleveDTO> listElevesDTO = new ArrayList<EleveDTO>();
+		for(Eleve eleve: eleves){
+			listElevesDTO.add(dozerBeanMapper.map(eleve, EleveDTO.class));
 		}
+
+		session.close();
+		return listElevesDTO;
+	}
+	
+	public  EleveDTO findByID(Integer id) {
+		Session session = getSessionFactory().openSession();
+		EleveDTO e = (EleveDTO) session.load(EleveDTO.class, id);
+		session.close();
+		return e;
+	}
+	
+	public Integer create(EleveDTO e) {
+		Session session = getSessionFactory().openSession();
+		session.beginTransaction();
+		session.save(e);
+		session.getTransaction().commit();
+		session.close();
+		System.out.println("Successfully created " + e.toString());
+		return e.getId();
+
 	}
 
-	public boolean validerEdition(Eleve eleve) {
+	public void update(EleveDTO e) {
+		Session session = getSessionFactory().openSession();
+		session.beginTransaction();
+		EleveDTO em = (EleveDTO) session.load(EleveDTO.class, e.getId());
+		em.setNom(e.getNom());
+		em.setPrenom(e.getPrenom());
+		session.getTransaction().commit();
+		session.close();
+		System.out.println("Successfully updated " + e.toString());
 
-		try {
-			Connection con = Connexion.getConnection();
-
-			if (getEleveParId(eleve.getId()) == null) {
-				return false;
-			}
-
-			// L'insert avec mysql
-			String query = "UPDATE eleves SET prenom = ?, nom = ? WHERE id = ?";
-			PreparedStatement ps = con.prepareStatement(query);
-			ps.setString(1, eleve.getPrenom());
-			ps.setString(2, eleve.getNom());
-			ps.setInt(3, eleve.getId());
-
-			ps.executeUpdate();
-			ps.close();
-		} catch (Exception e) {
-			e.printStackTrace();
-			System.out.println("Erreur avec validerEdition() -->" + e.getMessage());
-		}
-		return true;
 	}
 
-	public void ajouterEleve(Eleve eleve) {
+	public  void delete(Integer id) {
+		Session session = getSessionFactory().openSession();
+		session.beginTransaction();
+		EleveDTO e = findByID(id);
+		session.delete(e);
+		session.getTransaction().commit();
+		session.close();
+		System.out.println("Successfully deleted " + e.toString());
 
-		try {
-			Connection con = Connexion.getConnection();
-
-			// L'insert avec mysql
-			String query = " INSERT INTO eleves (prenom, nom)" + " values (?, ?)";
-			PreparedStatement ps = con.prepareStatement(query);
-			ps.setString(1, eleve.getPrenom());
-			ps.setString(2, eleve.getNom());
-
-			ps.executeUpdate();
-			ps.close();
-		} catch (Exception e) {
-			e.printStackTrace();
-			System.out.println("Erreur avec ajouterEleve() -->" + e.getMessage());
-
-		}
 	}
 
-	public void supprimerEleve(int id) {
+	public  void deleteAll() {
+		Session session = getSessionFactory().openSession();
+		session.beginTransaction();
+		Query query = session.createQuery("DELETE FROM Eleve ");
+		query.executeUpdate();
+		session.getTransaction().commit();
+		session.close();
+		System.out.println("Successfully deleted all Eleves.");
 
-		try {
-			Connection con = Connexion.getConnection();
-			PreparedStatement ps = con.prepareStatement("DELETE from eleves WHERE id = ?");
-			ps.setInt(1, id);
-			ps.executeUpdate();
-			ps.close();
-		} catch (Exception e) {
-			System.out.println("Error In supprimerEleveParId() -->" + e.getMessage());
-
-		}
 	}
 }
