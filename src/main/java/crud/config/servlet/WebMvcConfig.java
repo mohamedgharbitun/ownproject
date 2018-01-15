@@ -9,7 +9,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 
 @EnableWebMvc
 @Configuration
-@ComponentScan(basePackages = {"crud.rest.controller","crud.dao"})
+@ComponentScan(basePackages = {"crud.rest.controller"})
 public class WebMvcConfig extends WebMvcConfigurerAdapter {
 
     @Override
