@@ -4,5 +4,5 @@
 	http://www.springframework.org/schema/beans/spring-beans.xsd">
  
     <bean name="rest" class="crud.rest.controller.Rest" />
-    <bean name="dao" class="crud.dao.Dao" />
+    <bean name="daoCrud" class="crud.dao.DaoCrudImpl" />
 </beans>

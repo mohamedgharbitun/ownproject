@@ -16,7 +16,7 @@ import org.springframework.stereotype.Repository;
 import crud.modele.EleveDTO;
 
 @Repository
-public class Dao {
+public class DaoCrudImpl implements  DaoCrud {
 	
 	
 	@Autowired
@@ -49,8 +49,8 @@ public class Dao {
 		Session session = getSessionFactory().openSession();
 		EleveDTO eleveDto = null;
 		try {
-			Eleve e = (Eleve) session.load(Eleve.class, id);
-			eleveDto = dozerBeanMapper.map(e, EleveDTO.class);
+			Eleve eleveDao = (Eleve) session.load(Eleve.class, id);
+			eleveDto = dozerBeanMapper.map(eleveDao, EleveDTO.class);
 		} catch (ObjectNotFoundException e) {
 			return null;
 		} finally {
@@ -66,7 +66,6 @@ public class Dao {
 		session.save(eleveDao);
 		session.getTransaction().commit();
 		session.close();
-		System.out.println("Successfully created " + eleveDao.toString());
 		return eleveDao.getId();
 
 	}
@@ -80,7 +79,6 @@ public class Dao {
 		em.setPrenom(eleveDto.getPrenom());
 		session.getTransaction().commit();
 		session.close();
-		System.out.println("Successfully updated " + eleveDto.toString());
 	}
 
 	public void delete(Integer id) {
@@ -91,7 +89,6 @@ public class Dao {
 		session.delete(eleveDao);
 		session.getTransaction().commit();
 		session.close();
-		System.out.println("Successfully deleted " + e.toString());
 
 	}
 
@@ -102,7 +99,6 @@ public class Dao {
 		query.executeUpdate();
 		session.getTransaction().commit();
 		session.close();
-		System.out.println("Successfully deleted all Eleves.");
 
 	}
 }
