@@ -1,20 +1,16 @@
 package crud.modele;
-import javax.xml.bind.annotation.XmlRootElement;
- 
-@XmlRootElement
-// from http://www.vogella.com/articles/REST/
-// JAX-RS supports an automatic mapping from JAXB annotated class to XML and JSON
+
 public class EleveDTO {
  
-    private int id;
+    private Integer id;
     private String prenom;
     private String nom;
  
-    public int getId() {
+    public Integer getId() {
         return id;
     }
  
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
  

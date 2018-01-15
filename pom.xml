@@ -22,36 +22,18 @@
             <version>5.1.39</version>
          </dependency>
          
-          <!-- Le connecteur de POSTGRE -->
-        <dependency>
-			<groupId>org.postgresql</groupId>
-			<artifactId>postgresql</artifactId>
-			<version>42.1.4</version>
-		</dependency> 
-        <!-- javax: XML binding -->
-        <dependency>
-            <groupId>javax.xml</groupId>
-            <artifactId>jaxb-api</artifactId>
-            <version>2.1</version>
+         <dependency>
+		    <groupId>javax.servlet</groupId>
+		    <artifactId>javax.servlet-api</artifactId>
+		    <version>3.0.1</version>
+		</dependency>
+         
+         <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.9.3</version>
         </dependency>
  
-        <!-- RESTful web service: Jersey -->
-<!--         <dependency> -->
-<!--             <groupId>com.sun.jersey</groupId> -->
-<!--             <artifactId>jersey-server</artifactId> -->
-<!--             <version>1.17.1</version> -->
-<!--         </dependency> -->
-<!--         <dependency> -->
-<!--             <groupId>com.sun.jersey</groupId> -->
-<!--             <artifactId>jersey-servlet</artifactId> -->
-<!--             <version>1.17.1</version> -->
-<!--         </dependency> -->
-<!--         <dependency> -->
-<!--             <groupId>com.sun.jersey</groupId> -->
-<!--             <artifactId>jersey-json</artifactId> -->
-<!--             <version>1.17.1</version> -->
-<!--         </dependency> -->
-        
         <dependency>
 		    <groupId>org.springframework</groupId>
 		    <artifactId>spring-core</artifactId>
@@ -63,12 +45,6 @@
 		    <artifactId>spring-context</artifactId>
 		    <version>5.0.2.RELEASE</version>
 		</dependency>
-		
-<!-- 		<dependency> -->
-<!-- 		    <groupId>org.springframework</groupId> -->
-<!-- 		    <artifactId>spring-web</artifactId> -->
-<!-- 		    <version>5.0.2.RELEASE</version> -->
-<!-- 		</dependency> -->
 		
 		<dependency>
 		    <groupId>org.springframework</groupId>
@@ -94,13 +70,6 @@
             <version>5.0.0.RELEASE</version>
         </dependency>
 
-<!--         <dependency> -->
-<!--             <groupId>org.springframework</groupId> -->
-<!--             <artifactId>spring-test</artifactId> -->
-<!--             <version>5.0.2.RELEASE</version> -->
-<!--             <scope>test</scope> -->
-<!--         </dependency> -->
-		
 		<dependency>
 		    <groupId>net.sf.dozer</groupId>
 		    <artifactId>dozer-spring</artifactId>
@@ -111,13 +80,6 @@
 		    <groupId>net.sf.dozer</groupId>
 		    <artifactId>dozer</artifactId>
 		    <version>5.5.1</version>
-		</dependency>
-		
-		<dependency>
-		    <groupId>javax.servlet</groupId>
-		    <artifactId>javax.servlet-api</artifactId>
-		    <version>3.0.1</version>
-		    <scope>provided</scope>
 		</dependency>
 		
         <!-- Unit testing -->

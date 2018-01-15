@@ -14,7 +14,7 @@ import javax.persistence.Table;
 		@Id
 		@GeneratedValue(strategy = GenerationType.IDENTITY)
 		@Column(name = "id")
-		private int id;
+		private Integer id;
 		
 		@Column(name = "prenom")
 		private String prenom;
@@ -25,17 +25,17 @@ import javax.persistence.Table;
 		public Eleve() {
 		}
 
-		public Eleve(int id, String prenom, String nom) {
+		public Eleve(Integer id, String prenom, String nom) {
 			this.id = id;
 			this.prenom = prenom;
 			this.nom = nom;
 		}
 		
-		public int getId() {
+		public Integer getId() {
 			return id;
 		}
 
-		public void setId(int id) {
+		public void setId(Integer id) {
 			this.id = id;
 		}
 
