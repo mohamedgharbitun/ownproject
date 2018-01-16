@@ -3,11 +3,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="css/crud.css">
 <link rel="stylesheet" type="text/css" href="bower_components/AngularJS-Toaster/toaster.min.css">
+<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="bower_components/bootstrap-modal/css/bootstrap-modal.css">
 <script src="bower_components/angular/angular.min.js"></script>
 <script src="bower_components/AngularJS-Toaster/toaster.min.js"></script>
 <script src="bower_components/angular-animate/angular-animate.js"></script>
 <script src="bower_components/angular-route/angular-route.min.js"></script>
 <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="bower_components/bootstrap-modal/js/bootstrap-modal.js"></script>
 <script src="bower_components/promise/promise.js"></script>
 <script type="text/javascript" src="js/app.js"></script>
 <script type="text/javascript" src="js/eleve_controller.js"></script>
@@ -16,10 +21,10 @@
 <body ng-app="MonApp" ng-controller="EleveController">
 
 	<div class="datagrid">
-		<table>
+		<table class="table table-striped">
 			<thead>
 				<tr>
-					<th>id</th>
+					<th>Id</th>
 					<th>Prénom</th>
 					<th>Nom</th>
 					<th>Gérer</th>
@@ -29,11 +34,10 @@
 				<tr>
 					<td colspan="4"><div id="paging">
 							<ul>
-								<li><a href="#"><span>Précédent</span></a></li>
-								<li><a href="#" class="active"><span>1</span></a></li>
+								<li><a href="#"><span class="glyphicon glyphicon-backward"></span></a></li>
+								<li><a href="#"><span>1</span></a></li>
 								<li><a href="#"><span>2</span></a></li>
-								<li><a href="#"><span>3</span></a></li>
-								<li><a href="#"><span>Suivant</span></a></li>
+								<li><a href="#"><span class="glyphicon glyphicon-forward"></span></a></li>
 							</ul>
 						</div>
 				</tr>
@@ -45,37 +49,40 @@
 					<td>{{eleve.prenom}}</td>
 					<td>{{eleve.nom}}</td>
 					<td>
-						<button ng-click="editer(eleve)">Modifier</button>
-						<button ng-click="supprimer(eleve)">Supprimer</button>
+						<button class="btn btn-primary" ng-click="editer(eleve)">Modifier</button>
+						<button class="btn btn-danger" ng-click="supprimer(eleve)">Supprimer</button>
 					</td>
 				</tr>
 			</tbody>
 		</table>
 	</div>
-	<br>
-	<br>
 
 	<div class="datagrid">
 	<form name="formModif">
-		<table>
+		<table class="table">
 			<thead>
 				<tr>
-					<th>Modifier</th>
+					<th>Modifier vos coordonnées</th>
 				<tr>
 			</thead>
 			<tfoot>
 				<tr>
 					<td colspan="4">
-					<div id="paging" style="text-align: right">
-						<button ng-click="validerEdition()">Modifier</button>
+					<div id="paging" style="text-align: left">
+						<button class="btn btn-primary" ng-click="validerEdition()">Modifier</button>
 					</div></tr>
 			</tfoot>
 			<tbody>
 				<tr>
-					<td><label>Id</label><br>
-						<input ng-model="eleve.id" disabled></input><br> <label>Prénom</label><br>
-						<input ng-model="eleve.prenom"></input><br> <label>Nom</label><br>
-						<input ng-model="eleve.nom"></input><br>
+					<td>
+					<div class="form-group">
+						<label>Id</label>
+						<input class="mybtn form-control" ng-model="eleve.id" disabled></input>
+						<label>Prénom</label>
+						<input class="mybtn form-control" ng-model="eleve.prenom" placeholder="Entrer votre prénom"></input>
+						<label>Nom</label>
+						<input class="mybtn form-control" ng-model="eleve.nom" placeholder="Entrer votre nom"></input>
+					</div>
 						<!-- <input type="button" value="med" ng-click="redirectTest()"></input> -->
 					</td>
 				</tr>
@@ -83,30 +90,34 @@
 		</table>
 		</form>
 	</div>
-	<br>
-	<br>
 
 	<div class="datagrid">
 	<form name="formCreate">
-		<table>
+		<table class="table ">
 			<thead>
 				<tr>
-					<th>Créer</th>
+					<th>Créer un nouvel élève</th>
 				<tr>
 			</thead>
 			<tfoot>
 				<tr>
 					<td colspan="4">
-					<div id="paging" style="text-align: right"	ng-click="ajouter()">
-						<button>Ajouter</button>
+					<div id="paging" style="text-align: left"	ng-click="ajouter()">
+						<button class="btn btn-primary">Ajouter</button>
 					</div>
 				</tr>
 			</tfoot>
 			<tbody>
 				<tr>
-					<td><label>Prénom</label><br>
-					<input ng-model="nouvelEleve.prenom"></input><br> <label>Nom</label><br>
-					<input ng-model="nouvelEleve.nom"></input><br></td>
+					<td>
+					
+						<div class="form-group">
+						<label>Prénom</label>
+							<input class="mybtn form-control" ng-model="nouvelEleve.prenom" placeholder="Entrer votre prénom"></input>
+							<label>Nom</label><br>
+							<input class="mybtn form-control" ng-model="nouvelEleve.nom" placeholder="Entrer votre nom"></input>
+						</div>
+					</td>
 				</tr>
 			</tbody>
 		</table>
