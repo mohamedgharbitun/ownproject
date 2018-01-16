@@ -16,6 +16,7 @@ angular.module('MonApp').controller('EleveController', ['$scope', 'EleveService'
             },
             function(errResponse){
                 console.error('Error while fetching Users');
+                toaster.pop('error', "error", "Erreur technique lors de recherche des élèves!");
             }
         );
     }
@@ -27,12 +28,18 @@ angular.module('MonApp').controller('EleveController', ['$scope', 'EleveService'
 	        	$scope.eleve = d;
 	        },
 	        function(errResponse){
-	        	toaster.pop('error', "error", "Aucun eleve trouvé!");
+	        	toaster.pop('error', "error", "Aucun élève trouvé!");
 	        }
 	    );
     };
     
     $scope.validerEdition = function(){
+	if($scope.eleve.prenom === "" && $scope.eleve.nom === "")
+		{
+    		toaster.pop('warning', "Warning", "Veuillez renseigner un nom ou un prénom!");
+    		return ;
+		}
+    	
     	EleveService.validerEdition($scope.eleve)
 		        .then(
 		        function(d) {
@@ -41,7 +48,7 @@ angular.module('MonApp').controller('EleveController', ['$scope', 'EleveService'
 		        	totalEleves();
 		        },
 		        function(errResponse){
-		        	toaster.pop('warning', "Erreur", "Eleve non trouvé !");
+		        	toaster.pop('error', "Erreur", "Elève non trouvé !");
 		        }
 	        );
     };

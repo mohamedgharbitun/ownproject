@@ -1,22 +1,17 @@
-/* .datagrid table { */
-/* 	border-collapse: collapse; */
-/* 	text-align: left; */
-/* 	width: 100%; */
-/* } */
+.datagrid table {
+	border-collapse: collapse;
+	margin-left: 0.5%;
+	width: 99%;
+}
 
 .datagrid {
-	font: normal 12px/150% Arial, Helvetica, sans-serif;
+	font: normal 12px sans-serif;
 	background: #fff;
 	overflow: hidden;
-	border: 1px solid #2a6496;
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
 	border-radius: 3px;
 }
-
-/* .datagrid table td, .datagrid table th { */
-/* 	padding: 3px 10px; */
-/* } */
 
 .datagrid table thead th {
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #2a6496), color-stop(1, #5A9DAD));
@@ -28,10 +23,6 @@
 	font-weight: bold;
 	border-left: 1px solid #5A9DAD;
 }
-
-/* .datagrid table thead th:first-child { */
-/* 	border: none; */
-/* } */
 
 .datagrid table tbody td {
 	color: black;
@@ -107,5 +98,9 @@ div.dhtmlx_window_active, div.dhx_modal_cover_dv {
 }
 
 .form-control {
-	height: 26px !important;
+	height: 28px !important;
+}
+
+.table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
+	border-top : 0 !important;
 }
