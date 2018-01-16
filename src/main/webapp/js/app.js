@@ -59,6 +59,7 @@ angular
             .then(
             	function(response){
 	                toaster.pop('success', "Succès", "Ajout effectué ");
+	                $scope.nouvelEleve = {};
 	                rafraichirLeTableau();
             	},
 	        	function(errResponse) {
