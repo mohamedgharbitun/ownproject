@@ -34,7 +34,6 @@ public class DaoCrudImpl implements  DaoCrud {
 		for(Eleve eleve: eleves){
 			listElevesDTO.add(dozerBeanMapper.map(eleve, EleveDTO.class));
 		}
-
 		return listElevesDTO;
 	}
 	

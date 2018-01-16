@@ -21,6 +21,10 @@ public class Rest {
 	
 	@Autowired
 	private ServiceCrud serviceCrud;
+	
+	// To get all beans definitions
+//	@Autowired
+//    private ApplicationContext applicationContext;
 
 	@RequestMapping(method=RequestMethod.GET, value="/totalEleves")
 	public ResponseEntity<List<EleveDTO>> getTousEleves() {
