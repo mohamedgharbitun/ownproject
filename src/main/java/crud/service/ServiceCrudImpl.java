@@ -2,6 +2,8 @@ package crud.service;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,6 +11,8 @@ import crud.dao.DaoCrud;
 import crud.modele.EleveDTO;
 
 @Service("crudService")
+@Transactional
+
 public class ServiceCrudImpl  implements ServiceCrud {
 	
 	@Autowired
