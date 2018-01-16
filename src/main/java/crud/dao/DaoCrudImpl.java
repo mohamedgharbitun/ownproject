@@ -68,6 +68,7 @@ public class DaoCrudImpl implements  DaoCrud {
 	public void delete(Integer id) {
 		Eleve eleveDao = dozerBeanMapper.map(findByID(id), Eleve.class);
 		Session session = getCurrentSession();
+		session.clear();
 		session.delete(eleveDao);
 	}
 
