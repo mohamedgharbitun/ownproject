@@ -8,9 +8,12 @@
 <script src="bower_components/angular-animate/angular-animate.js"></script>
 <script src="bower_components/angular-route/angular-route.min.js"></script>
 <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+<script src="bower_components/promise/promise.js"></script>
 <script type="text/javascript" src="js/app.js"></script>
+<script type="text/javascript" src="js/eleve_controller.js"></script>
+<script type="text/javascript" src="js/eleve_service.js"></script>
 <script type="text/javascript" src="js/testController.js"></script>
-<body ng-app="MonApp" ng-controller="mainController">
+<body ng-app="MonApp" ng-controller="EleveController">
 
 	<div class="datagrid">
 		<table>
@@ -30,8 +33,6 @@
 								<li><a href="#" class="active"><span>1</span></a></li>
 								<li><a href="#"><span>2</span></a></li>
 								<li><a href="#"><span>3</span></a></li>
-								<li><a href="#"><span>4</span></a></li>
-								<li><a href="#"><span>5</span></a></li>
 								<li><a href="#"><span>Suivant</span></a></li>
 							</ul>
 						</div>
@@ -55,6 +56,7 @@
 	<br>
 
 	<div class="datagrid">
+	<form name="formModif">
 		<table>
 			<thead>
 				<tr>
@@ -79,11 +81,13 @@
 				</tr>
 			</tbody>
 		</table>
+		</form>
 	</div>
 	<br>
 	<br>
 
 	<div class="datagrid">
+	<form name="formCreate">
 		<table>
 			<thead>
 				<tr>
@@ -106,6 +110,7 @@
 				</tr>
 			</tbody>
 		</table>
+		</form>
 	</div>
 <toaster-container toaster-options="{'position-class': 'toast-top-center'}"></toaster-container>
 <div ui-view></div>
