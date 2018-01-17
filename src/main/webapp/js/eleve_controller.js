@@ -2,8 +2,8 @@
  
 angular.module('MonApp').controller('EleveController', ['$scope', 'EleveService','toaster', function($scope, EleveService, toaster) {
  
-	$scope.eleve = {id:null,prenom:'',nom:''};
-	$scope.eleves={id:null,prenom:'',nom:''};
+	$scope.eleve = {id:null,prenom:'',nom:'', age: ''};
+	$scope.eleves={id:null,prenom:'',nom:'', age: ''};
 	$scope.eleves=[];
     
     totalEleves();

@@ -19,6 +19,10 @@
       <a>nom</a>
       <b>nom</b>
     </field>
+    <field>
+      <a>age</a>
+      <b>age</b>
+    </field>
   </mapping>  
 
 </mappings> 

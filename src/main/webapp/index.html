@@ -27,103 +27,199 @@
 					<th>Id</th>
 					<th>Prénom</th>
 					<th>Nom</th>
-					<th>Gérer</th>
+					<th>Age</th>
+					<th style="width: 10%;"></th>
 				</tr>
 			</thead>
-			<tfoot>
-				<tr>
-					<td colspan="4"><div id="paging">
-							<ul>
-								<li><a href="#"><span class="glyphicon glyphicon-backward"></span></a></li>
-								<li><a href="#"><span>1</span></a></li>
-								<li><a href="#"><span>2</span></a></li>
-								<li><a href="#"><span class="glyphicon glyphicon-forward"></span></a></li>
-							</ul>
-						</div>
-				</tr>
-			</tfoot>
+<!-- 			<tfoot> -->
+<!-- 				<tr> -->
+<!-- 					<td colspan="4"> -->
+<!-- 					<div id="paging"> -->
+<!-- 						<ul> -->
+<!-- 							<li><a href="#"><span class="glyphicon glyphicon-backward"></span></a></li> -->
+<!-- 							<li><a href="#"><span>1</span></a></li> -->
+<!-- 							<li><a href="#"><span>2</span></a></li> -->
+<!-- 							<li><a href="#"><span class="glyphicon glyphicon-forward"></span></a></li> -->
+<!-- 						</ul> -->
+<!-- 					</div> -->
+<!-- 				</tr> -->
+<!-- 			</tfoot> -->
 
 			<tbody>
 				<tr ng-repeat="eleve in eleves">
 					<td>{{eleve.id}}</td>
 					<td>{{eleve.prenom}}</td>
 					<td>{{eleve.nom}}</td>
+					<td>{{eleve.age}}</td>
 					<td>
-						<button class="btn btn-success" ng-click="editer(eleve)">Modifier</button>
-						<button class="btn btn-danger" ng-click="supprimer(eleve)">Supprimer</button>
+						<button class="glyphicon glyphicon-edit"  style="font-size:15px;" ng-click="editer(eleve)"></button>
+						<button class="glyphicon glyphicon-remove-circle" style="color:red;font-size:15px;" ng-click="supprimer(eleve)"></button>
 					</td>
 				</tr>
 			</tbody>
 		</table>
 	</div>
-
+	<br/>
+	<br/>
 	<div class="datagrid">
 	<form name="formModif">
-		<table class="table">
-			<thead>
-				<tr>
-					<th>Modifier vos coordonnées</th>
-				<tr>
-			</thead>
-			<tfoot>
-				<tr>
-					<td colspan="4">
-					<div id="paging" style="text-align: left">
-						<button class="btn btn-success" ng-click="validerEdition()">Modifier</button>
-					</div></tr>
-			</tfoot>
-			<tbody>
-				<tr>
-					<td>
-					<div class="form-group">
-						<label>Id</label>
-						<input class="mybtn form-control" ng-model="eleve.id" disabled></input>
-						<label>Prénom</label>
-						<input class="mybtn form-control" ng-model="eleve.prenom" placeholder="Entrer votre prénom"></input>
-						<label>Nom</label>
-						<input class="mybtn form-control" ng-model="eleve.nom" placeholder="Entrer votre nom"></input>
-					</div>
-						<!-- <input type="button" value="med" ng-click="redirectTest()"></input> -->
-					</td>
-				</tr>
-			</tbody>
-		</table>
+		<fieldset>
+			<legend>Modifier vos coordonnées</legend>
+			<br/>
+			<div class="row">
+		               <div class="form-group col-md-12">
+		                   <div class="col-sm-4">
+		                       <label class="control-label" for="id">Id</label>
+		                   </div>
+		                   <div class="col-sm-2">
+		                   </div>
+		                   <div class="col-sm-4">
+		                       <label class="control-label" for="age">Age</label>
+		                   </div>
+		                   <div class="col-sm-2">
+		                   </div>
+		               </div>
+		       </div>
+			   <div class="row">
+		               <div class="form-group col-md-12">
+		                   <div class="col-sm-4">
+		                       <input type="text" class="btnAge form-control" id=id ng-model="eleve.id" disabled></input>
+		                   </div>
+		                   <div class="col-sm-2">
+		                   </div>
+		                   <div class="col-sm-4">
+		                      <input class="btnAge form-control" id="age" ng-model="eleve.age"></input>
+		                   </div>
+		                   <div class="col-sm-2">
+		                   </div>
+		               </div>
+		       </div>
+		       <br/>
+		       <div class="row">
+		               <div class="form-group col-md-12">
+		                   <div class="col-sm-4">
+		                       <label class="control-label" for="prenom">Prénom</label>
+		                   </div>
+		                   <div class="col-sm-2">
+		                   </div>
+		                   <div class="col-sm-4">
+		                       <label class="control-label" for="nom">Nom</label>
+		                   </div>
+		                   <div class="col-sm-2">
+		                   </div>
+		               </div>
+		       </div>
+		       <div class="row">
+		               <div class="form-group col-md-12">
+		                   <div class="col-sm-4">
+		                       <input class="form-control" id=prenom ng-model="eleve.prenom"></input>
+		                   </div>
+		                   <div class="col-sm-2">
+		                   </div>
+		                   <div class="col-sm-4">
+		                   	 <input class="form-control" id="nom" ng-model="eleve.nom" ></input>
+		                   </div>
+		                   <div class="col-sm-2">
+		                   </div>
+		               </div>
+		       </div>
+		       <br/>
+		       <div class="row">
+		               <div class="form-group col-md-12">
+		                   <div class="col-sm-3">
+		                   </div>
+		                   <div class="col-sm-3">
+		                   	
+		                   </div>
+		                   <div class="col-sm-3"  ng-click="validerEdition()">
+		                   <button class="btn btn-success">Modifier</button> 
+		                   </div>
+		                    <div class="col-sm-3">
+		                   </div>
+		               </div>
+		       </div>
+	       </fieldset>
 		</form>
 	</div>
 
 	<div class="datagrid">
 	<form name="formCreate">
-		<table class="table ">
-			<thead>
-				<tr>
-					<th>Créer un nouvel élève</th>
-				<tr>
-			</thead>
-			<tfoot>
-				<tr>
-					<td colspan="4">
-					<div id="paging" style="text-align: left"	ng-click="ajouter()">
-						<button class="btn btn-primary">Ajouter</button>
-					</div>
-				</tr>
-			</tfoot>
-			<tbody>
-				<tr>
-					<td>
-					
-						<div class="form-group">
-						<label>Prénom</label>
-							<input class="mybtn form-control" ng-model="nouvelEleve.prenom" placeholder="Entrer votre prénom"></input>
-							<label>Nom</label>
-							<input class="mybtn form-control" ng-model="nouvelEleve.nom" placeholder="Entrer votre nom"></input>
-						</div>
-					</td>
-				</tr>
-			</tbody>
-		</table>
-		</form>
+	<fieldset>
+		<legend>Créer un nouvel élève</legend>
 		<br/>
-		<br/>
+		<div class="row">
+	               <div class="form-group col-md-12">
+	                   <div class="col-sm-4">
+	                       <label class="control-label" for="prenom">Prenom</label>
+	                   </div>
+	                   <div class="col-sm-2">
+		                   </div>
+	                   <div class="col-sm-4">
+	                       <label class="control-label" for="age">Age</label>
+	                   </div>
+	                   <div class="col-sm-2">
+		                   </div>
+	               </div>
+	       </div>
+		   <div class="row">
+	               <div class="form-group col-md-12">
+	                   <div class="col-sm-4">
+	                       <input type="text" class="form-control" id=prenom ng-model="nouvelEleve.prenom" placeholder="Saisir votre prénom"></input>
+	                   </div>
+	                   <div class="col-sm-2">
+		                   </div>
+	                   <div class="col-sm-4">
+	                      <input class="btnAge form-control" id="age" ng-model="nouvelEleve.age" ></input>
+	                   </div>
+	                   <div class="col-sm-2">
+		                </div>
+	               </div>
+	       </div>
+	       <br/>
+	       <div class="row">
+	               <div class="form-group col-md-12">
+	                   <div class="col-sm-4">
+	                       <label class="control-label" for="nom">Nom</label>
+	                   </div>
+	                   <div class="col-sm-2">
+		                </div>
+	                   <div class="col-sm-4">
+	                       <label class="control-label"></label>
+	                   </div>
+	                   <div class="col-sm-2">
+		                </div>
+	               </div>
+	       </div>
+	       <div class="row">
+	               <div class="form-group col-md-12">
+	                   <div class="col-sm-4">
+	                       <input type="text" class="form-control" id=nom ng-model="nouvelEleve.nom" placeholder="Saisir votre nom"></input>
+	                   </div>
+	                   <div class="col-sm-2">
+		                </div>
+	                   <div class="col-sm-4">
+	                   </div>
+	                   <div class="col-sm-2">
+		                </div>
+	               </div>
+	       </div>
+	       <br/>
+	       <div class="row">
+	               <div class="form-group col-md-12">
+	                   <div class="col-sm-3">
+	                   </div>
+	                   <div class="col-sm-3" >
+	                   </div>
+	                   <div class="col-sm-3" ng-click="ajouter()">
+	                   <button class="btn btn-primary">Ajouter</button> 
+	                   </div>
+	                   <div class="col-sm-3">
+	                   </div>
+	               </div>
+	       </div>
+       </fieldset>
+	</form>
+	<br/>
 	</div>
 <toaster-container toaster-options="{'position-class': 'toast-top-center'}"></toaster-container>
 <div ui-view></div>

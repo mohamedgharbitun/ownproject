@@ -36,22 +36,16 @@
 	color: #5A9DAD;
 }
 
-.datagrid table tbody td:first-child {
-	border-left: none;
-}
-
-.datagrid table tfoot td div {
-	border-top: 1px solid #e6f2ff;
-	background: #e6f2ff;
-}
-
 .datagrid table tfoot td {
 	padding: 0;
 	font-size: 12px
 }
 
 .datagrid table tfoot td div {
-	padding: 2px;
+	padding: 14px;
+	margin-left: 52%;
+	border-top: 1px solid #e6f2ff;
+	background: #e6f2ff;
 }
 
 .datagrid table tfoot td ul {
@@ -93,8 +87,8 @@ div.dhtmlx_window_active, div.dhx_modal_cover_dv {
 	position: fixed !important;
 }
 
-.mybtn {
-	width: 32% !important;
+.btnAge {
+	width: 30% !important;
 }
 
 .form-control {
