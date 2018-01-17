@@ -22,17 +22,17 @@ import javax.persistence.Table;
 		@Column(name="nom")
 		private String nom;
 		
-		@Column(name="age")
-		private Integer age;
+		@Column(name="datenaissance")
+		private String dateNaissance;
 		
 		public Eleve() {
 		}
 
-		public Eleve(Integer id, String prenom, String nom, Integer age) {
+		public Eleve(Integer id, String prenom, String nom, String dateNaissance) {
 			this.id = id;
 			this.prenom = prenom;
 			this.nom = nom;
-			this.age = age;
+			this.dateNaissance = dateNaissance;
 		}
 		
 		public Integer getId() {
@@ -59,17 +59,17 @@ import javax.persistence.Table;
 			this.nom = nom;
 		}
 		
-		public Integer getAge() {
-			return age;
+		public String getDateNaissance() {
+			return dateNaissance;
 		}
 
-		public void setAge(Integer age) {
-			this.age = age;
+		public void setDateNaissance(String dateNaissance) {
+			this.dateNaissance = dateNaissance;
 		}
 
 		@Override
 		public String toString() {
-			return "Employee: " + this.id + ", " + this.prenom + ", " + this.nom + ", " + this.age; 
+			return "Employee: " + this.id + ", " + this.prenom + ", " + this.nom + ", " + this.dateNaissance; 
 		}
 		
 }

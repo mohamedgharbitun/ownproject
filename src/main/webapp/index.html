@@ -29,7 +29,7 @@
 	<div class="datagrid">
 	<form name="formModif">
 		<fieldset>
-			<legend>Modifier vos coordonnées</legend>
+			<legend>Modifier les coordonnées d'un élève</legend>
 			<br/>
 			<div class="row">
 		               <div class="form-group col-md-12">
@@ -39,7 +39,7 @@
 		                   <div class="col-sm-2">
 		                   </div>
 		                   <div class="col-sm-4">
-		                       <label class="control-label" for="age">Age</label>
+		                       <label class="control-label" for="datenaissance">Date de naissance</label>
 		                   </div>
 		                   <div class="col-sm-2">
 		                   </div>
@@ -53,7 +53,7 @@
 		                   <div class="col-sm-2">
 		                   </div>
 		                   <div class="col-sm-4">
-		                      <input class="btnAge form-control" id="age" ng-model="eleve.age"></input>
+		                      <input class="btnAge form-control" id="datenaissance" ng-model="eleve.dateNaissance" maxlength="10"></input>
 		                   </div>
 		                   <div class="col-sm-2">
 		                   </div>
@@ -91,10 +91,11 @@
 		       <br/>
 		       <div class="row">
 		               <div class="form-group col-md-12">
-		                   <div class="col-sm-10">
+		                   <div class="col-sm-6">
 		                   </div>
-		                   <div class="col-sm-2"  ng-click="validerEdition()">
-		                   <button class="btn btn-success">Valider</button> 
+		                   <div class="col-sm-6">
+		                   	<button class="btn btn-success pull-right" ng-click="validerEdition()">Valider</button>
+		                   	<button class="btn btn-primary pull-right resetBtn" ng-click="reset()">Annuler</button> 
 		                   </div>
 		               </div>
 		       </div>
@@ -116,7 +117,7 @@
 	                   <div class="col-sm-2">
 		                   </div>
 	                   <div class="col-sm-4">
-	                       <label class="control-label" for="age">Age</label>
+	                       <label class="control-label" for="datenaissance">Date de naissance</label>
 	                   </div>
 	                   <div class="col-sm-2">
 		                   </div>
@@ -130,7 +131,7 @@
 	                   <div class="col-sm-2">
 		                   </div>
 	                   <div class="col-sm-4">
-	                      <input class="btnAge form-control" id="age" ng-model="nouvelEleve.age" ></input>
+	                      <input class="btnAge form-control" id="datenaissance" ng-model="nouvelEleve.dateNaissance" maxlength="10"></input>
 	                   </div>
 	                   <div class="col-sm-2">
 		                </div>
@@ -167,10 +168,10 @@
 	       <br/>
 	       <div class="row">
 	               <div class="form-group col-md-12">
-	                   <div class="col-sm-10">
+	                   <div class="col-sm-6">
 	                   </div>
-	                   <div class="col-sm-2" ng-click="ajouter()">
-	                   <button class="btn btn-primary">Valider</button> 
+	                   <div class="col-sm-6" ng-click="ajouter()">
+	                   <button class="btn btn-success pull-right">Valider</button> 
 	                   </div>
 	               </div>
 	       </div>
@@ -178,7 +179,7 @@
 	</form>
 	<br/>
 	</div>
-<toaster-container toaster-options="{'position-class': 'toast-top-center'}"></toaster-container>
+<toaster-container toaster-options="{'position-class': 'myPositionClass'}"></toaster-container>
 <div ui-view></div>
 </body>
 </html>

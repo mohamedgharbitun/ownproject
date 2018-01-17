@@ -2,8 +2,8 @@
  
 angular.module('MonApp').controller('EleveController', ['$scope', 'EleveService','toaster', function($scope, EleveService, toaster) {
  
-	$scope.eleve = {id:null,prenom:'',nom:'', age: ''};
-	$scope.eleves={id:null,prenom:'',nom:'', age: ''};
+	$scope.eleve = {id:null,prenom:'',nom:'', dateNaissance: ''};
+	$scope.eleves= {id:null,prenom:'',nom:'', dateNaissance: ''};
 	$scope.eleves=[];
     
     totalEleves();
@@ -36,7 +36,7 @@ angular.module('MonApp').controller('EleveController', ['$scope', 'EleveService'
     };
     
     $scope.validerEdition = function(){
-	if($scope.eleve.prenom === "" && $scope.eleve.nom === "")
+	if($scope.eleve.prenom === "" && $scope.eleve.nom === "" && $scope.eleve.dateNaissance === "")
 		{
     		toaster.pop('warning', "Warning", "Veuillez renseigner un nom ou un prénom!");
     		return ;
@@ -60,7 +60,7 @@ angular.module('MonApp').controller('EleveController', ['$scope', 'EleveService'
 	        .then(
 	        function(d) {
 	        	toaster.pop('success', "Succès", "Ajout effectué ");
-	        	reset();
+	        	$scope.reset();
 	        	totalEleves();
 	        },
 	        function(errResponse){
@@ -74,7 +74,7 @@ angular.module('MonApp').controller('EleveController', ['$scope', 'EleveService'
 	        .then(
 	        function(d) {
 	        	toaster.pop('info', "Succès", "Suppression effectuée");
-	        	reset();
+	        	$scope.reset();
 	        	totalEleves();
 	        },
 	        function(errResponse){
@@ -100,13 +100,13 @@ angular.module('MonApp').controller('EleveController', ['$scope', 'EleveService'
     	    		 { field: 'id',name :'id', displayName: 'Identifiant', width: 100, resizable: false},
     	             { field: 'prenom',name:'prenom', displayName: 'Prénom', width: 130 , resizable: false},
     	             { field: 'nom',name : 'nom', displayName : 'Nom', width: 130, resizable: false},
-    	             { field: 'age',name :'age', displayName : 'Age', resizable: false}
+    	             { field: 'dateNaissance',name :'dateNaissance', displayName : 'Date de naissance', resizable: false}
     	             
     	         ]
      };
     		 
   
-    function reset(){
+     $scope.reset = function (){
         $scope.nouvelEleve = {};
         $scope.eleve = {};
         $scope.formCreate.$setPristine(); //reset Form

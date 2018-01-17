@@ -5,7 +5,7 @@ public class EleveDTO {
     private Integer id;
     private String prenom;
     private String nom;
-    private Integer age;
+    private String dateNaissance;
  
     public Integer getId() {
         return id;
@@ -31,13 +31,12 @@ public class EleveDTO {
         this.nom = nom;
     }
 
-	public Integer getAge() {
-		return age;
+	public String getDateNaissance() {
+		return dateNaissance;
 	}
 
-	public void setAge(Integer age) {
-		this.age = age;
+	public void setDateNaissance(String dateNaissance) {
+		this.dateNaissance = dateNaissance;
 	}
-    
-    
+
 }

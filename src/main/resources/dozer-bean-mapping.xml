@@ -20,8 +20,8 @@
       <b>nom</b>
     </field>
     <field>
-      <a>age</a>
-      <b>age</b>
+      <a>dateNaissance</a>
+      <b>dateNaissance</b>
     </field>
   </mapping>  
 
