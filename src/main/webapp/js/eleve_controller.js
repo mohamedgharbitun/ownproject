@@ -13,6 +13,8 @@ angular.module('MonApp').controller('EleveController', ['$scope', 'EleveService'
             .then(
             function(d) {
             	$scope.eleves = d;
+            	$scope.gridOptions.data = $scope.eleves;
+
             },
             function(errResponse){
                 console.error('Error while fetching Users');
@@ -80,6 +82,29 @@ angular.module('MonApp').controller('EleveController', ['$scope', 'EleveService'
 	        }
 	        );
      };
+     
+     var deletionCellTemplate =  '<button class="glyphicon glyphicon-remove-circle" style="color:red;height: 27px;" title="Supprimer un élève" ng-click="grid.appScope.supprimer(row.entity)"></button>'+
+     							 '<button class="glyphicon glyphicon-edit" style="color:#507ab2;height: 27px;" title="Modifier un élève" ng-click="grid.appScope.editer(row.entity)"></button>';
+     
+     $scope.gridOptions = {
+    		 enableCellSelection: false,
+    		 enableColumnMenus: false,
+    		 enableRowHeaderSelection: false,
+    		 enableCellEdit : false,
+    		 enableCellEditOnFocus: true,
+    		 enableSorting: false,
+    		 enableFiltering : false,
+    		 columnDefs : 
+    			 [
+    				 { field:'delete',displayName :'',width: 73, cellTemplate: deletionCellTemplate , resizable: false},
+    	    		 { field: 'id',name :'id', displayName: 'Identifiant', width: 100, resizable: false},
+    	             { field: 'prenom',name:'prenom', displayName: 'Prénom', width: 130 , resizable: false},
+    	             { field: 'nom',name : 'nom', displayName : 'Nom', width: 130, resizable: false},
+    	             { field: 'age',name :'age', displayName : 'Age', resizable: false}
+    	             
+    	         ]
+     };
+    		 
   
     function reset(){
         $scope.nouvelEleve = {};

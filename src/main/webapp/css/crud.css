@@ -13,75 +13,75 @@
 	border-radius: 3px;
 }
 
-.datagrid table thead th {
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #2a6496), color-stop(1, #5A9DAD));
-	background: -moz-linear-gradient(center top, #2a6496 5%, #5A9DAD 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#2a6496',endColorstr='#5A9DAD');
-	background-color: #2a6496;
-	color: #FFFFFF;
-	font-size: 13px;
-	font-weight: bold;
-	border-left: 1px solid #5A9DAD;
-}
+/* .datagrid table thead th { */
+/* 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #2a6496), color-stop(1, #5A9DAD)); */
+/* 	background: -moz-linear-gradient(center top, #2a6496 5%, #5A9DAD 100%); */
+/* 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#2a6496',endColorstr='#5A9DAD'); */
+/* 	background-color: #2a6496; */
+/* 	color: #FFFFFF; */
+/* 	font-size: 13px; */
+/* 	font-weight: bold; */
+/* 	border-left: 1px solid #5A9DAD; */
+/* } */
 
-.datagrid table tbody td {
-	color: black;
-	border-left: 1px solid #D9CFB8;
-	font-size: 13px;
-	font-weight: normal;
-}
+/* .datagrid table tbody td { */
+/* 	color: black; */
+/* 	border-left: 1px solid #D9CFB8; */
+/* 	font-size: 13px; */
+/* 	font-weight: normal; */
+/* } */
 
-.datagrid table tbody .alt td {
-	background: #F0E5CC;
-	color: #5A9DAD;
-}
+/* .datagrid table tbody .alt td { */
+/* 	background: #F0E5CC; */
+/* 	color: #5A9DAD; */
+/* } */
 
-.datagrid table tfoot td {
-	padding: 0;
-	font-size: 12px
-}
+/* .datagrid table tfoot td { */
+/* 	padding: 0; */
+/* 	font-size: 12px */
+/* } */
 
-.datagrid table tfoot td div {
-	padding: 14px;
-	margin-left: 52%;
-	border-top: 1px solid #e6f2ff;
-	background: #e6f2ff;
-}
+/* .datagrid table tfoot td div { */
+/* 	padding: 14px; */
+/* 	margin-left: 52%; */
+/* 	border-top: 1px solid #e6f2ff; */
+/* 	background: #e6f2ff; */
+/* } */
 
-.datagrid table tfoot td ul {
-	margin: 0;
-	padding: 0;
-	list-style: none;
-	text-align: center;
-}
+/* .datagrid table tfoot td ul { */
+/* 	margin: 0; */
+/* 	padding: 0; */
+/* 	list-style: none; */
+/* 	text-align: center; */
+/* } */
 
-.datagrid table tfoot  li {
-	display: inline;
-}
+/* .datagrid table tfoot  li { */
+/* 	display: inline; */
+/* } */
 
-.datagrid table tfoot li a {
-	text-decoration: none;
-	display: inline-block;
-	padding: 2px 8px;
-	margin: 1px;
-	color: #FFFFFF;
-	border: 1px solid #2a6496;
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
-	border-radius: 3px;
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #2a6496), color-stop(1, #5A9DAD));
-	background: -moz-linear-gradient(center top, #2a6496 5%, #5A9DAD 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#2a6496',endColorstr='#5A9DAD');
-	background-color: #2a6496;
-}
+/* .datagrid table tfoot li a { */
+/* 	text-decoration: none; */
+/* 	display: inline-block; */
+/* 	padding: 2px 8px; */
+/* 	margin: 1px; */
+/* 	color: #FFFFFF; */
+/* 	border: 1px solid #2a6496; */
+/* 	-webkit-border-radius: 3px; */
+/* 	-moz-border-radius: 3px; */
+/* 	border-radius: 3px; */
+/* 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #2a6496), color-stop(1, #5A9DAD)); */
+/* 	background: -moz-linear-gradient(center top, #2a6496 5%, #5A9DAD 100%); */
+/* 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#2a6496',endColorstr='#5A9DAD'); */
+/* 	background-color: #2a6496; */
+/* } */
 
-.datagrid table tfoot ul.active, .datagrid table tfoot ul a:hover {
-	text-decoration: none;
-	border-color: #5A9DAD;
-	color: #FFFFFF;
-	background: none;
-	background-color: #2a6496;
-}
+/* .datagrid table tfoot ul.active, .datagrid table tfoot ul a:hover { */
+/* 	text-decoration: none; */
+/* 	border-color: #5A9DAD; */
+/* 	color: #FFFFFF; */
+/* 	background: none; */
+/* 	background-color: #2a6496; */
+/* } */
 
 div.dhtmlx_window_active, div.dhx_modal_cover_dv {
 	position: fixed !important;
@@ -95,10 +95,26 @@ div.dhtmlx_window_active, div.dhx_modal_cover_dv {
 	height: 28px !important;
 }
 
-.table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
-	border-top : 0 !important;
+/* .table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th { */
+/* 	border-top : 0 !important; */
+/* } */
+
+/* .table { */
+/* 	margin-bottom: 7px !important; */
+/* } */
+
+.gridClass {
+	width: 95%;
+	height: 250px;
+	margin-left : 10px !important;
 }
 
-.table {
-	margin-bottom: 7px !important;
+fieldset {
+	background-color: #f9f9f9 !important;
+	width : 95%;
+	margin-left : 10px !important;
+}
+
+legend {
+	padding-left: 15px !important;
 }

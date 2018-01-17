@@ -5,6 +5,7 @@
 <link rel="stylesheet" type="text/css" href="bower_components/AngularJS-Toaster/toaster.min.css">
 <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="bower_components/bootstrap-modal/css/bootstrap-modal.css">
+<link rel="stylesheet" type="text/css" href="bower_components/angular-ui-grid/ui-grid.min.css">
 <script src="bower_components/angular/angular.min.js"></script>
 <script src="bower_components/AngularJS-Toaster/toaster.min.js"></script>
 <script src="bower_components/angular-animate/angular-animate.js"></script>
@@ -13,53 +14,17 @@
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
 <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="bower_components/bootstrap-modal/js/bootstrap-modal.js"></script>
+<script src="bower_components/angular-ui-grid/ui-grid.min.js"></script>
 <script src="bower_components/promise/promise.js"></script>
 <script type="text/javascript" src="js/app.js"></script>
 <script type="text/javascript" src="js/eleve_controller.js"></script>
 <script type="text/javascript" src="js/eleve_service.js"></script>
 <script type="text/javascript" src="js/testController.js"></script>
 <body ng-app="MonApp" ng-controller="EleveController">
-
-	<div class="datagrid">
-		<table class="table table-striped">
-			<thead>
-				<tr>
-					<th>Id</th>
-					<th>Prénom</th>
-					<th>Nom</th>
-					<th>Age</th>
-					<th style="width: 10%;"></th>
-				</tr>
-			</thead>
-<!-- 			<tfoot> -->
-<!-- 				<tr> -->
-<!-- 					<td colspan="4"> -->
-<!-- 					<div id="paging"> -->
-<!-- 						<ul> -->
-<!-- 							<li><a href="#"><span class="glyphicon glyphicon-backward"></span></a></li> -->
-<!-- 							<li><a href="#"><span>1</span></a></li> -->
-<!-- 							<li><a href="#"><span>2</span></a></li> -->
-<!-- 							<li><a href="#"><span class="glyphicon glyphicon-forward"></span></a></li> -->
-<!-- 						</ul> -->
-<!-- 					</div> -->
-<!-- 				</tr> -->
-<!-- 			</tfoot> -->
-
-			<tbody>
-				<tr ng-repeat="eleve in eleves">
-					<td>{{eleve.id}}</td>
-					<td>{{eleve.prenom}}</td>
-					<td>{{eleve.nom}}</td>
-					<td>{{eleve.age}}</td>
-					<td>
-						<button class="glyphicon glyphicon-edit"  style="font-size:15px;" ng-click="editer(eleve)"></button>
-						<button class="glyphicon glyphicon-remove-circle" style="color:red;font-size:15px;" ng-click="supprimer(eleve)"></button>
-					</td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
+	
 	<br/>
+	 <div ui-grid="gridOptions" class="gridClass">
+	 </div>
 	<br/>
 	<div class="datagrid">
 	<form name="formModif">
@@ -126,22 +91,18 @@
 		       <br/>
 		       <div class="row">
 		               <div class="form-group col-md-12">
-		                   <div class="col-sm-3">
+		                   <div class="col-sm-10">
 		                   </div>
-		                   <div class="col-sm-3">
-		                   	
-		                   </div>
-		                   <div class="col-sm-3"  ng-click="validerEdition()">
-		                   <button class="btn btn-success">Modifier</button> 
-		                   </div>
-		                    <div class="col-sm-3">
+		                   <div class="col-sm-2"  ng-click="validerEdition()">
+		                   <button class="btn btn-success">Valider</button> 
 		                   </div>
 		               </div>
 		       </div>
 	       </fieldset>
 		</form>
 	</div>
-
+	<br/>
+	<br/>
 	<div class="datagrid">
 	<form name="formCreate">
 	<fieldset>
@@ -206,14 +167,10 @@
 	       <br/>
 	       <div class="row">
 	               <div class="form-group col-md-12">
-	                   <div class="col-sm-3">
+	                   <div class="col-sm-10">
 	                   </div>
-	                   <div class="col-sm-3" >
-	                   </div>
-	                   <div class="col-sm-3" ng-click="ajouter()">
-	                   <button class="btn btn-primary">Ajouter</button> 
-	                   </div>
-	                   <div class="col-sm-3">
+	                   <div class="col-sm-2" ng-click="ajouter()">
+	                   <button class="btn btn-primary">Valider</button> 
 	                   </div>
 	               </div>
 	       </div>

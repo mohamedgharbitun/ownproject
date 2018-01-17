@@ -1,6 +1,6 @@
 {
   "name": "promise",
-  "version": "0.2.2",
+  "version": "0.2.1",
   "main": "promise.js",
   "ignore": [
     "tests",
@@ -10,17 +10,18 @@
     "**/*.html",
     "**/*.md"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "promise": "*"
+  },
   "devDependencies": {},
   "homepage": "https://github.com/dmarcos/promise",
-  "_release": "0.2.2",
+  "_release": "0.2.1",
   "_resolution": {
     "type": "version",
-    "tag": "0.2.2",
-    "commit": "16367483673c32eb6bfb12eb347d9fb8f043629e"
+    "tag": "0.2.1",
+    "commit": "3cc130d9a788c1ea2600bd732a5107f5ed5a71de"
   },
   "_source": "https://github.com/dmarcos/promise.git",
-  "_target": "^0.2.2",
-  "_originalSource": "promise",
-  "_direct": true
+  "_target": "0.2.1",
+  "_originalSource": "promise"
 }

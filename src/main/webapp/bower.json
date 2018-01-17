@@ -23,9 +23,10 @@
     "angular-animate": "^1.6.8",
     "angular-route": "^1.6.8",
     "angular-ui-router": "^1.0.12",
-	"promise" : "0.2.1"
+    "promise": "0.2.1",
     "bootstrap": "^3.3.7",
-    "bootstrap-modal": "^2.2.6"
+    "bootstrap-modal": "^2.2.6",
+    "angular-ui-grid": "^4.2.1"
   },
   "resolutions": {
     "jquery": "1.9.1 - 3",

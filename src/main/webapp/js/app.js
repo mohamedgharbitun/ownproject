@@ -1,7 +1,7 @@
 'use strict';
 
 var App = angular
-.module('MonApp',['toaster','ngAnimate','ui.router'])
+.module('MonApp',['toaster','ngAnimate','ui.router','ui.grid'])
 .config(function($stateProvider, $urlRouterProvider, $locationProvider) {
 	
 	$locationProvider.html5Mode(false);
