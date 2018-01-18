@@ -63,10 +63,15 @@ public class DaoCrudImpl implements  DaoCrud {
 		Eleve em = (Eleve) session.load(Eleve.class, eleveDao.getId());
 		em.setNom(eleveDto.getNom());
 		em.setPrenom(eleveDto.getPrenom());
+		em.setDateNaissance(eleveDto.getDateNaissance());
 	}
 
 	public void delete(Integer id) {
 		Eleve eleveDao = dozerBeanMapper.map(findByID(id), Eleve.class);
+		
+		if(eleveDao == null) {
+			throw new HibernateException("Eleve non trouvé");
+		}
 		Session session = getCurrentSession();
 		session.clear();
 		session.delete(eleveDao);

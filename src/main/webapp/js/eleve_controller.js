@@ -12,9 +12,9 @@ angular.module('MonApp').controller('EleveController', ['$scope', 'EleveService'
     	EleveService.totalEleves()
             .then(
             function(d) {
+            	console.log("value "+ d);
             	$scope.eleves = d;
             	$scope.gridOptions.data = $scope.eleves;
-
             },
             function(errResponse){
                 console.error('Error while fetching Users');

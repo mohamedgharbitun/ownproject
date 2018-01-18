@@ -2,6 +2,7 @@ package crud.rest.controller;
 
 import java.util.List;
 
+import org.hibernate.HibernateException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -58,8 +59,10 @@ public class Rest {
             return new ResponseEntity<EleveDTO>(HttpStatus.NOT_FOUND);
         }
 		
+		eleveDto.setId(eleve.getId());
 		eleveDto.setNom(eleve.getNom());
 		eleveDto.setPrenom(eleve.getPrenom());
+		eleveDto.setDateNaissance(eleve.getDateNaissance());
 		
 		serviceCrud.update(eleveDto);
 		return new ResponseEntity<EleveDTO>(eleveDto, HttpStatus.OK);
@@ -74,16 +77,14 @@ public class Rest {
 
 
 	@RequestMapping(method=RequestMethod.DELETE, value="/supprimerEleveParId/{id}")
-	public ResponseEntity<EleveDTO> supprimerEleveParId(@PathVariable(value="id") Integer id) {
+	public ResponseEntity<?> supprimerEleveParId(@PathVariable(value="id") Integer id) {
 		
-		EleveDTO eleveDto = serviceCrud.findByID(id);
-        if (eleveDto == null) {
-            System.out.println("Unable to delete. Eleve with id " + id + " not found");
-            return new ResponseEntity<EleveDTO>(HttpStatus.NOT_FOUND);
-        }
-		
-        serviceCrud.delete(id);
-		return new ResponseEntity<EleveDTO>(HttpStatus.NO_CONTENT);
+        try {
+        	serviceCrud.delete(id);
+        }catch (HibernateException e) {
+        	return new ResponseEntity<EleveDTO>(HttpStatus.NOT_FOUND);
+		}
+		return new ResponseEntity<EleveDTO>(HttpStatus.OK);
 	}
 
 }
